@@ -1,0 +1,22 @@
+version: 4.1.27
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Locate and click the "File a ticket" button.
+    commands:
+      - command: hover-text
+        text: File a ticket
+        description: button to file a ticket on the webpage
+        action: click
+  - prompt: Assert that the ticket filing page or functionality is accessed.
+    commands:
+      - command: assert
+        expect: the page contains "Submit a request"
+  - prompt: >-
+      Assert that no errors are shown on the ticket filing page.  # Use the
+      content of the file from the environment
+    commands:
+      - command: assert
+        expect: no error messages are visible on the page
