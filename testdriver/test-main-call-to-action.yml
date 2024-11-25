@@ -1,0 +1,22 @@
+version: 4.1.27
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Assert that the main call to action is present on the page.
+    commands:
+      - command: assert
+        expect: the "Log in" button is present on the page
+  - prompt: Click the main call to action button.
+    commands:
+      - command: hover-text
+        text: Log in
+        description: main call to action button
+        action: click
+  - prompt: >-
+      Assert no errors are shown after clicking the button.  # Use the content
+      of the file from the environment
+    commands:
+      - command: assert
+        expect: no error messages are visible on the page
